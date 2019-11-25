@@ -22,8 +22,9 @@ Route::post('/oauth/token', '\Laravel\Passport\Http\Controllers\AccessTokenContr
 
 Route::post('/register', 'PassportController@register');
 Route::post('/login', 'PassportController@login');
+Route::post('/refresh', 'PassportController@refresh');
+
 // Route::post('/logout', 'PassportController@logout');
-// Route::post('/refresh', 'PassportController@refresh');
 
 // 授權後才可訪問的測試頁面
 Route::get('/test', function(){
