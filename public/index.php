@@ -7,6 +7,7 @@
  * @author   Taylor Otwell <taylor@laravel.com>
  */
 
+
 define('LARAVEL_START', microtime(true));
 
 /*
@@ -52,7 +53,8 @@ $app = require_once __DIR__.'/../bootstrap/app.php';
 $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
 
 $response = $kernel->handle(
-    $request = Illuminate\Http\Request::capture()
+    // $request = Illuminate\Http\Request::capture()
+    $request = \App\Http\Requests\BaseRequest::class
 );
 
 $response->send();
