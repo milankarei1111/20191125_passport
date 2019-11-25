@@ -21,11 +21,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('/oauth/token', '\Laravel\Passport\Http\Controllers\AccessTokenController@issueToken');
 
 Route::post('/register', 'PassportController@register');
-// Route::post('/login', 'PassportController@login');
+Route::post('/login', 'PassportController@login');
 // Route::post('/logout', 'PassportController@logout');
 // Route::post('/refresh', 'PassportController@refresh');
 
 // 授權後才可訪問的測試頁面
 Route::get('/test', function(){
-        return 'ok';
+   return 'ok';
 })->middleware('auth');

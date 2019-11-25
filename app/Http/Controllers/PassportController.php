@@ -39,7 +39,14 @@ class PassportController extends Controller
 
     public function login()
     {
-
+        $user = User::where($this->username(), request($this->username()))->firstOrFail();
+        if(!password_verify(request('password'), $user->password)) {
+            return response()->json([
+                'status' => 'E00002',
+                'error' => '帳號或密碼錯誤!'
+                ]);
+        }
+        return $this->getToken();
     }
 
     public function logout()
